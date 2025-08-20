@@ -1,6 +1,6 @@
 import React from "react";
 
-import AppSearchAPIConnector from "@elastic/search-ui-app-search-connector";
+import ElasticsearchAPIConnector from "@elastic/search-ui-elasticsearch-connector";
 
 import {
   ErrorBoundary,
@@ -27,11 +27,11 @@ import {
 } from "./config/config-helper";
 
 const { hostIdentifier, searchKey, endpointBase, engineName } = getConfig();
-const connector = new AppSearchAPIConnector({
-  searchKey,
-  engineName,
-  hostIdentifier,
-  endpointBase
+const connector = new ElasticsearchAPIConnector({
+  "host": "http://172.191.12.215:9200",
+  "index": "cv-transcriptions",
+  "searchFields": ["generated_text", "duration", "age", "gender", "accent"],
+  "resultFields": ["generated_text", "duration", "age", "gender", "accent"]
 });
 const config = {
   searchQuery: {

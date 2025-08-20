@@ -1,26 +1,36 @@
 {
-  "endpointBase": "https://search-ui-sandbox.ent.us-central1.gcp.cloud.es.io",
-  "engineName": "national-parks",
-  "searchKey": "search-nyxkw1fuqex9qjhfvatbqfmw",
-  "searchFields": ["title", "description", "states"],
+  "endpointBase": "http://172.191.12.215:9200",
+  "engineName": "cv-transcriptions",
+
+  "searchFields": ["generated_text", "age", "gender", "accent"],
+  
   "resultFields": [
-    "id",
-    "title",
-    "description",
-    "states",
-    "visitors",
-    "square_km",
-    "world_heritage_site",
-    "date_established",
-    "image_url",
-    "location",
-    "acres",
-    "nps_link"
+    "generated_text",
+    "duration",
+    "age",
+    "gender",
+    "accent"
   ],
-  "querySuggestFields": ["title"],
-  "titleField": "title",
-  "urlField": "nps_link",
-  "thumbnailField": "image_url",
-  "sortFields": ["title", "states"],
-  "facets": ["states", "world_heritage_site"]
+
+  "querySuggestFields": ["generated_text"],
+
+  "titleField": "generated_text",
+  "urlField": null,
+  "thumbnailField": null,
+
+  "sortFields": [
+    "generated_text",
+    "duration",
+    "age",
+    "gender",
+    "accent"
+  ],
+
+  "facets": [
+    "generated_text",
+    "duration",
+    "age",
+    "gender",
+    "accent"
+  ]
 }
