@@ -1249,7 +1249,7 @@
     apache-arrow "18.x - 19.x"
     tslib "^2.4.0"
 
-"@elastic/react-search-ui-views@1.24.2", "@elastic/react-search-ui-views@^1.24.2":
+"@elastic/react-search-ui-views@1.24.2", "@elastic/react-search-ui-views@^1.24.1":
   version "1.24.2"
   resolved "https://registry.yarnpkg.com/@elastic/react-search-ui-views/-/react-search-ui-views-1.24.2.tgz#8914c0251e59942f12aacec3f528138601123dcf"
   integrity sha512-knDMSaghU+ffceETgtIgd3B3QprsPiYW/wP7gEQ0JJFi0iS4sTg+aHDhHmGcsX8JTvErkTIch1tvVbgoMiwjBw==
@@ -1259,7 +1259,7 @@
     rc-pagination "^4.0.4"
     react-select "^5.10.1"
 
-"@elastic/react-search-ui@^1.24.2":
+"@elastic/react-search-ui@^1.24.1":
   version "1.24.2"
   resolved "https://registry.yarnpkg.com/@elastic/react-search-ui/-/react-search-ui-1.24.2.tgz#08e65bf217380e5829b770d921473ca967738584"
   integrity sha512-XeGspWelRQ7uqkF0MvCMSBqc1gMLvJdpPmtrK/hnEfwJY4uc/6TdllNGzj/NJEccbLJDKEy8/YWvrpDTGZYg9Q==
@@ -1267,7 +1267,7 @@
     "@elastic/react-search-ui-views" "1.24.2"
     "@elastic/search-ui" "1.24.2"
 
-"@elastic/search-ui-app-search-connector@latest":
+"@elastic/search-ui-app-search-connector@^1.24.1":
   version "1.24.1"
   resolved "https://registry.yarnpkg.com/@elastic/search-ui-app-search-connector/-/search-ui-app-search-connector-1.24.1.tgz#5f1266a5f7024d70a1d24841ea7756e709b43bc8"
   integrity sha512-W5s2Jp34FjStfJu2/5bDxRSfv0c+h5vRDF88eNw6ABl9bmMaxxkd+E3PZH7WA0WnHdcLBJK0gGyLfN2EGvKq6g==
@@ -1275,7 +1275,7 @@
     "@elastic/app-search-javascript" "^8.1.2"
     "@elastic/search-ui" "1.24.1"
 
-"@elastic/search-ui-elasticsearch-connector@^1.24.2":
+"@elastic/search-ui-elasticsearch-connector@^1.24.1":
   version "1.24.2"
   resolved "https://registry.yarnpkg.com/@elastic/search-ui-elasticsearch-connector/-/search-ui-elasticsearch-connector-1.24.2.tgz#a3b150309ccc3327435cc3ca34c8a058eb67b379"
   integrity sha512-GjltHFi+F5wbFbR60/7297Zohvzi+HxvVQgR3SvNFWbAeAb2oAik2wAyvvNn6k6LTgyshobX534/3fEaMDhVqg==
@@ -1293,7 +1293,7 @@
     history "^4.9.0"
     qs "^6.9.7"
 
-"@elastic/search-ui@1.24.2", "@elastic/search-ui@^1.24.2":
+"@elastic/search-ui@1.24.2", "@elastic/search-ui@^1.24.1":
   version "1.24.2"
   resolved "https://registry.yarnpkg.com/@elastic/search-ui/-/search-ui-1.24.2.tgz#a66c44d4c1a310226b8a3bef864b0050514dc8e9"
   integrity sha512-fQ/BGEbh4EvX+IWw89xiSUXD3p3iDvZPA46WCHwH+jfEtKiC9P+274UiR32POI3znaWfZElxm9kIyNioVGin0Q==
@@ -1460,9 +1460,9 @@
     "@floating-ui/utils" "^0.2.10"
 
 "@floating-ui/dom@^1.0.1":
-  version "1.7.3"
-  resolved "https://registry.yarnpkg.com/@floating-ui/dom/-/dom-1.7.3.tgz#6174ac3409e6a064bbdf1f4bb07188ee9461f8cf"
-  integrity sha512-uZA413QEpNuhtb3/iIKoYMSK07keHPYeXF02Zhd6e213j+d1NamLix/mCLxBUDW/Gx52sPH2m+chlUsyaBs/Ag==
+  version "1.7.4"
+  resolved "https://registry.yarnpkg.com/@floating-ui/dom/-/dom-1.7.4.tgz#ee667549998745c9c3e3e84683b909c31d6c9a77"
+  integrity sha512-OOchDgh4F2CchOX94cRVqhvy7b3AFb+/rQXyswmzmGakRfkMgoWVjfnLWkRirfLEfuD4ysVW16eXzwt3jHIzKA==
   dependencies:
     "@floating-ui/core" "^1.7.3"
     "@floating-ui/utils" "^0.2.10"
@@ -3356,9 +3356,9 @@ caniuse-api@^3.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001702, caniuse-lite@^1.0.30001735:
-  version "1.0.30001735"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001735.tgz#ba658fd3fd24a4106fd68d5ce472a2c251494dbe"
-  integrity sha512-EV/laoX7Wq2J9TQlyIXRxTJqIw4sxfXS4OYgudGxBYRuTv0q7AM6yMEpU/Vo1I94thg9U6EZ2NfZx9GJq83u7w==
+  version "1.0.30001736"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001736.tgz#3710a99cf154b653590fb6a57f81ee34173c3b47"
+  integrity sha512-ImpN5gLEY8gWeqfLUyEF4b7mYWcYoR2Si1VhnrbM4JizRFmfGaAQ12PhNykq6nvI4XvKLrsp8Xde74D5phJOSw==
 
 case-sensitive-paths-webpack-plugin@^2.4.0:
   version "2.4.0"

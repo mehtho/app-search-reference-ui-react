@@ -3,31 +3,67 @@ const path = require("path");
 const fs = require("fs");
 const { default: ElasticsearchAPIConnector } = require("@elastic/search-ui-elasticsearch-connector");
 
-const app = express();
-app.use(express.json());
+function waitForApiKey(filePath, interval = 2000) {
+  return new Promise((resolve) => {
+    const check = () => {
+      if (fs.existsSync(filePath)) {
+        const key = fs.readFileSync(filePath, "utf-8").trim();
+        if (key && key.length > 0) {
+          console.log("API key loaded.");
+          return resolve(key);
+        }
+      }
+      console.log("Waiting for API key...");
+      setTimeout(check, interval);
+    };
+    check();
+  });
+}
 
-// Serve React build
-app.use(express.static(path.join(__dirname, "build")));
+async function start() {
+  const apiKeyFile = "keys/api-key.txt";
+  const apiKey = await waitForApiKey(apiKeyFile);
 
-// API proxy
-const apiKey = fs.readFileSync("keys/api-key.txt", "utf-8").trim();
-const connector = new ElasticsearchAPIConnector({
-  host: "https://172.191.12.215:9200",
-  index: "cv-transcriptions",
-  apiKey
-});
+  const connector = new ElasticsearchAPIConnector({
+    host: "https://172.191.12.215:9200",
+    index: "cv-transcriptions",
+    apiKey
+  });
 
-app.post("/api/search", async (req, res) => {
-  const { state, queryConfig } = req.body;
-  res.json(await connector.onSearch(state, queryConfig));
-});
-app.post("/api/autocomplete", async (req, res) => {
-  const { state, queryConfig } = req.body;
-  res.json(await connector.onAutocomplete(state, queryConfig));
-});
+  const app = express();
+  app.use(express.json());
 
-app.use((req, res) => {
-  res.sendFile(path.join(__dirname, "build", "index.html"));
-});
+  // API routes only (React dev server handles frontend in dev mode)
+  app.post("/api/search", async (req, res) => {
+    try {
+      const { state, queryConfig } = req.body;
+      res.json(await connector.onSearch(state, queryConfig));
+    } catch (err) {
+      console.error("Search error:", err);
+      res.status(500).json({ error: "Search failed" });
+    }
+  });
 
-app.listen(3000, () => console.log("Frontend + API on http://localhost:3000"));
+  app.post("/api/autocomplete", async (req, res) => {
+    try {
+      const { state, queryConfig } = req.body;
+      res.json(await connector.onAutocomplete(state, queryConfig));
+    } catch (err) {
+      console.error("Autocomplete error:", err);
+      res.status(500).json({ error: "Autocomplete failed" });
+    }
+  });
+
+  app.use(express.static(path.join(__dirname, "build")));
+
+  app.use((req, res) => {
+    res.sendFile(path.join(__dirname, "build", "index.html"));
+  });
+
+  const PORT = 3000;
+  app.listen(3000, () => {
+    console.log("API listening on port 3000");
+  });
+}
+
+start();

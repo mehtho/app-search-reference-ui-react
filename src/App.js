@@ -64,7 +64,7 @@ const config = {
   },
   autocompleteQuery: {
     results: {
-      resultsPerPage: 5,
+      resultsPerPage: 30,
       search_fields: {
         generated_text: { weight: 2 }
       },
