@@ -29,19 +29,61 @@ import {
 const { hostIdentifier, searchKey, endpointBase, engineName } = getConfig();
 const connector = new ElasticsearchAPIConnector({
   "host": "http://172.191.12.215:9200",
-  "index": "cv-transcriptions",
-  "searchFields": ["generated_text", "duration", "age", "gender", "accent"],
-  "resultFields": ["generated_text", "duration", "age", "gender", "accent"]
+  "index": "cv-transcriptions"
 });
+
 const config = {
   searchQuery: {
-    facets: buildFacetConfigFromConfig(),
-    ...buildSearchOptionsFromConfig()
+    search_fields: {
+      generated_text: { weight: 3 },
+      duration: {},
+      age: {},
+      gender: {},
+      accent: {}
+    },
+    result_fields: {
+      generated_text: { snippet: { size: 200, fallback: true } },
+      duration: { raw: {} },
+      age: { raw: {} },
+      gender: { raw: {} },
+      accent: { raw: {} }
+    },
+    disjunctiveFacets: ["age.keyword", "gender.keyword", "accent.keyword"],
+    facets: {
+      "age.keyword": { type: "value" },
+      "gender.keyword": { type: "value" },
+      "accent.keyword": { type: "value" },
+      duration: {
+        type: "range",
+        ranges: [
+          { to: 5, name: "Short (<5s)" },
+          { from: 5, to: 15, name: "Medium (5-15s)" },
+          { from: 15, name: "Long (>15s)" }
+        ]
+      }
+    }
   },
-  autocompleteQuery: buildAutocompleteQueryConfig(),
+  autocompleteQuery: {
+    results: {
+      resultsPerPage: 5,
+      search_fields: {
+        generated_text: { weight: 2 }
+      },
+      result_fields: {
+        generated_text: {
+          snippet: { size: 100, fallback: true }
+        },
+        duration: { raw: {} },
+        age: { raw: {} },
+        gender: { raw: {} },
+        accent: { raw: {} }
+      }
+    }
+  },
   apiConnector: connector,
   alwaysSearchOnInitialLoad: true
 };
+
 
 export default function App() {
   return (
