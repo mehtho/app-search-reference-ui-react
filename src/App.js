@@ -33,6 +33,8 @@ const connector = new ApiProxyConnector({
 
 const config = {
   searchQuery: {
+    track_total_hits: true,
+
     search_fields: {
       generated_text: { weight: 3 },
       duration: {},

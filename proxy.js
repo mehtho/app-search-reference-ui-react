@@ -37,7 +37,20 @@ async function start() {
   app.post("/api/search", async (req, res) => {
     try {
       const { state, queryConfig } = req.body;
-      res.json(await connector.onSearch(state, queryConfig));
+      const result = await connector.onSearch(state, {
+        ...queryConfig,
+        additionalOptions: { rest_total_hits_as_int: true }
+      });
+
+      if (result && typeof result.totalResults === "number") {
+        result.rawResponse = result.rawResponse || { hits: {} };
+        result.rawResponse.hits.total = result.totalResults;
+      }
+
+      console.log("=== /api/search Response ===");
+      console.dir(result, { depth: null });
+
+      res.json(result);
     } catch (err) {
       console.error("Search error:", err);
       res.status(500).json({ error: "Search failed" });
@@ -47,7 +60,12 @@ async function start() {
   app.post("/api/autocomplete", async (req, res) => {
     try {
       const { state, queryConfig } = req.body;
-      res.json(await connector.onAutocomplete(state, queryConfig));
+      const result = await connector.onAutocomplete(state, queryConfig);
+
+      console.log("=== /api/autocomplete Response ===");
+      console.dir(result, { depth: null });
+
+      res.json(result);
     } catch (err) {
       console.error("Autocomplete error:", err);
       res.status(500).json({ error: "Autocomplete failed" });
