@@ -1,5 +1,5 @@
 {
-  "endpointBase": "http://${SYS_PUBLIC_IP}:${ES_PORT}",
+  "endpointBase": "http://${SYS_PUBLIC_IP}/api:${SEARCH_UI_PORT}",
   "engineName": "cv-transcriptions",
 
   "searchFields": ["generated_text", "age", "gender", "accent"],
