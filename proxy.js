@@ -3,6 +3,7 @@ const path = require("path");
 const fs = require("fs");
 const { default: ElasticsearchAPIConnector } = require("@elastic/search-ui-elasticsearch-connector");
 
+// Utility to wait for API key file to exist
 function waitForApiKey(filePath, interval = 2000) {
   return new Promise((resolve) => {
     const check = () => {
@@ -24,8 +25,13 @@ async function start() {
   const apiKeyFile = "keys/api-key.txt";
   const apiKey = await waitForApiKey(apiKeyFile);
 
+  // Pick values from env vars
+  const ES_HOST = process.env.SYS_PUBLIC_IP || "127.0.0.1";
+  const ES_PORT = process.env.ES_PORT || "9200";
+  const SEARCH_UI_PORT = process.env.SEARCH_UI_PORT || "3000";
+
   const connector = new ElasticsearchAPIConnector({
-    host: "https://172.191.12.215:9200",
+    host: `https://${ES_HOST}:${ES_PORT}`,
     index: "cv-transcriptions",
     apiKey
   });
@@ -33,7 +39,7 @@ async function start() {
   const app = express();
   app.use(express.json());
 
-  // API routes only (React dev server handles frontend in dev mode)
+  // Proxy API routes
   app.post("/api/search", async (req, res) => {
     try {
       const { state, queryConfig } = req.body;
@@ -66,15 +72,14 @@ async function start() {
     }
   });
 
+  // Serve frontend build
   app.use(express.static(path.join(__dirname, "build")));
-
   app.use((req, res) => {
     res.sendFile(path.join(__dirname, "build", "index.html"));
   });
 
-  const PORT = 3000;
-  app.listen(3000, () => {
-    console.log("API listening on port 3000");
+  app.listen(SEARCH_UI_PORT, () => {
+    console.log(`API listening on port ${SEARCH_UI_PORT}`);
   });
 }
 

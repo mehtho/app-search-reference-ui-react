@@ -1,0 +1,7 @@
+window._env_ = {
+  SYS_PUBLIC_IP: "$SYS_PUBLIC_IP",
+  SEARCH_UI_PORT: "$SEARCH_UI_PORT",
+  ASR_PORT: "$ASR_PORT",
+  ES_PORT: "$ES_PORT",
+  ES02_PORT: "$ES02_PORT"
+};
