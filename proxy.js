@@ -26,12 +26,11 @@ async function start() {
   const apiKey = await waitForApiKey(apiKeyFile);
 
   // Pick values from env vars
-  const ES_HOST = process.env.SYS_PUBLIC_IP || "127.0.0.1";
   const ES_PORT = process.env.ES_PORT || "9200";
   const SEARCH_UI_PORT = process.env.SEARCH_UI_PORT || "3000";
 
   const connector = new ElasticsearchAPIConnector({
-    host: `https://${ES_HOST}:${ES_PORT}`,
+    host: `https://es01:${ES_PORT}`,
     index: "cv-transcriptions",
     apiKey
   });

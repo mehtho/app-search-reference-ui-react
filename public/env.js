@@ -3,5 +3,4 @@ window._env_ = {
   SEARCH_UI_PORT: "$SEARCH_UI_PORT",
   ASR_PORT: "$ASR_PORT",
   ES_PORT: "$ES_PORT",
-  ES02_PORT: "$ES02_PORT"
 };
