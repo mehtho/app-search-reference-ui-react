@@ -28,7 +28,7 @@ import {
 
 const { hostIdentifier, searchKey, endpointBase, engineName } = getConfig();
 const connector = new ApiProxyConnector({
-  endpointBase: "http://172.191.12.215:3001"
+  endpointBase: "/api"
 });
 
 const config = {
