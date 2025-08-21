@@ -19,10 +19,10 @@
   "thumbnailField": null,
 
   "facets": [
-    "generated_text",
-    "duration",
     "age",
     "gender",
-    "accent"
+    "accent",
+    "duration"
   ]
+
 }

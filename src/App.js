@@ -49,20 +49,65 @@ const config = {
       gender: { raw: {} },
       accent: { raw: {} }
     },
-    disjunctiveFacets: ["age.keyword", "gender.keyword", "accent.keyword"],
-    facets: {
-      "age.keyword": { type: "value" },
-      "gender.keyword": { type: "value" },
-      "accent.keyword": { type: "value" },
-      duration: {
-        type: "range",
-        ranges: [
-          { to: 5, name: "Short (<5s)" },
-          { from: 5, to: 15, name: "Medium (5-15s)" },
-          { from: 15, name: "Long (>15s)" }
-        ]
-      }
+disjunctiveFacets: ["age", "gender", "accent"],
+
+facets: {
+    age: {
+      type: "value",
+      options: [
+        { value: "", name: "Unknown" },
+        { value: "teens", name: "Teens" },
+        { value: "twenties", name: "Twenties" },
+        { value: "thirties", name: "Thirties" },
+        { value: "fourties", name: "Forties" },
+        { value: "fifties", name: "Fifties" },
+        { value: "sixties", name: "Sixties" },
+        { value: "seventies", name: "Seventies" },
+        { value: "eighties", name: "Eighties" }
+      ]
+    },
+    gender: {
+      type: "value",
+      options: [
+        { value: "", name: "Unknown" },
+        { value: "male", name: "Male" },
+        { value: "female", name: "Female" }
+      ]
+    },
+    accent: {
+      type: "value",
+      options: [
+        { value: "", name: "Unknown" },
+        { value: "us", name: "US" },
+        { value: "england", name: "England" },
+        { value: "australia", name: "Australia" },
+        { value: "indian", name: "Indian" },
+        { value: "canada", name: "Canada" },
+        { value: "scotland", name: "Scotland" },
+        { value: "african", name: "African" },
+        { value: "newzealand", name: "New Zealand" },
+        { value: "ireland", name: "Ireland" },
+        { value: "malaysia", name: "Malaysia" },
+        { value: "philippines", name: "Philippines" },
+        { value: "bermuda", name: "Bermuda" },
+        { value: "southatlandtic", name: "South Atlantic" },
+        { value: "hongkong", name: "Hong Kong" },
+        { value: "singapore", name: "Singapore" },
+        { value: "wales", name: "Wales" }
+      ]
+    },
+    duration: {
+      type: "range",
+      ranges: [
+        { to: 5, name: "Short (<5s)" },
+        { from: 5, to: 10, name: "5–10s" },
+        { from: 10, to: 20, name: "10–20s" },
+        { from: 20, to: 30, name: "20–30s" },
+        { from: 30, name: "Long (>30s)" }
+      ]
     }
+  }
+
   },
   autocompleteQuery: {
     results: {

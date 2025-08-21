@@ -47,9 +47,6 @@ async function start() {
         result.rawResponse.hits.total = result.totalResults;
       }
 
-      console.log("=== /api/search Response ===");
-      console.dir(result, { depth: null });
-
       res.json(result);
     } catch (err) {
       console.error("Search error:", err);
@@ -61,9 +58,6 @@ async function start() {
     try {
       const { state, queryConfig } = req.body;
       const result = await connector.onAutocomplete(state, queryConfig);
-
-      console.log("=== /api/autocomplete Response ===");
-      console.dir(result, { depth: null });
 
       res.json(result);
     } catch (err) {
