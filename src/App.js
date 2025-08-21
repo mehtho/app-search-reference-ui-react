@@ -1,6 +1,6 @@
 import React from "react";
 
-import ElasticsearchAPIConnector from "@elastic/search-ui-elasticsearch-connector";
+import { ApiProxyConnector } from "@elastic/search-ui-elasticsearch-connector/api-proxy";
 
 import {
   ErrorBoundary,
@@ -27,9 +27,8 @@ import {
 } from "./config/config-helper";
 
 const { hostIdentifier, searchKey, endpointBase, engineName } = getConfig();
-const connector = new ElasticsearchAPIConnector({
-  "host": "http://172.191.12.215:9200",
-  "index": "cv-transcriptions"
+const connector = new ApiProxyConnector({
+  endpointBase: "http://172.191.12.215:3001"
 });
 
 const config = {

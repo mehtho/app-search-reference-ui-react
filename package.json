@@ -8,6 +8,7 @@
     "@elastic/search-ui": "^1.24.2",
     "@elastic/search-ui-app-search-connector": "latest",
     "@elastic/search-ui-elasticsearch-connector": "^1.24.2",
+    "express": "^5.1.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.0"
@@ -20,7 +21,9 @@
     "build-js": "node ./scripts/build-no-chunks.js",
     "build": "npm run build-js",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "proxy": "node proxy.js",
+    "dev": "concurrently \"yarn start\" \"yarn proxy\""
   },
   "eslintConfig": {
     "extends": [
