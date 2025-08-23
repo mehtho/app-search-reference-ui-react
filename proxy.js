@@ -42,15 +42,7 @@ async function start() {
   app.post("/api/search", async (req, res) => {
     try {
       const { state, queryConfig } = req.body;
-      const result = await connector.onSearch(state, {
-        ...queryConfig,
-        additionalOptions: { rest_total_hits_as_int: true }
-      });
-
-      if (result && typeof result.totalResults === "number") {
-        result.rawResponse = result.rawResponse || { hits: {} };
-        result.rawResponse.hits.total = result.totalResults;
-      }
+      const result = await connector.onSearch(state, queryConfig);
 
       res.json(result);
     } catch (err) {

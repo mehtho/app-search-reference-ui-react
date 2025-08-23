@@ -1249,7 +1249,7 @@
     apache-arrow "18.x - 19.x"
     tslib "^2.4.0"
 
-"@elastic/react-search-ui-views@1.24.2", "@elastic/react-search-ui-views@^1.24.1":
+"@elastic/react-search-ui-views@1.24.2", "@elastic/react-search-ui-views@^1.18.3":
   version "1.24.2"
   resolved "https://registry.yarnpkg.com/@elastic/react-search-ui-views/-/react-search-ui-views-1.24.2.tgz#8914c0251e59942f12aacec3f528138601123dcf"
   integrity sha512-knDMSaghU+ffceETgtIgd3B3QprsPiYW/wP7gEQ0JJFi0iS4sTg+aHDhHmGcsX8JTvErkTIch1tvVbgoMiwjBw==
@@ -1259,7 +1259,7 @@
     rc-pagination "^4.0.4"
     react-select "^5.10.1"
 
-"@elastic/react-search-ui@^1.24.1":
+"@elastic/react-search-ui@^1.18.3":
   version "1.24.2"
   resolved "https://registry.yarnpkg.com/@elastic/react-search-ui/-/react-search-ui-1.24.2.tgz#08e65bf217380e5829b770d921473ca967738584"
   integrity sha512-XeGspWelRQ7uqkF0MvCMSBqc1gMLvJdpPmtrK/hnEfwJY4uc/6TdllNGzj/NJEccbLJDKEy8/YWvrpDTGZYg9Q==
@@ -1267,7 +1267,7 @@
     "@elastic/react-search-ui-views" "1.24.2"
     "@elastic/search-ui" "1.24.2"
 
-"@elastic/search-ui-app-search-connector@^1.24.1":
+"@elastic/search-ui-app-search-connector@^1.18.3":
   version "1.24.1"
   resolved "https://registry.yarnpkg.com/@elastic/search-ui-app-search-connector/-/search-ui-app-search-connector-1.24.1.tgz#5f1266a5f7024d70a1d24841ea7756e709b43bc8"
   integrity sha512-W5s2Jp34FjStfJu2/5bDxRSfv0c+h5vRDF88eNw6ABl9bmMaxxkd+E3PZH7WA0WnHdcLBJK0gGyLfN2EGvKq6g==
@@ -1275,7 +1275,7 @@
     "@elastic/app-search-javascript" "^8.1.2"
     "@elastic/search-ui" "1.24.1"
 
-"@elastic/search-ui-elasticsearch-connector@^1.24.1":
+"@elastic/search-ui-elasticsearch-connector@^1.18.3":
   version "1.24.2"
   resolved "https://registry.yarnpkg.com/@elastic/search-ui-elasticsearch-connector/-/search-ui-elasticsearch-connector-1.24.2.tgz#a3b150309ccc3327435cc3ca34c8a058eb67b379"
   integrity sha512-GjltHFi+F5wbFbR60/7297Zohvzi+HxvVQgR3SvNFWbAeAb2oAik2wAyvvNn6k6LTgyshobX534/3fEaMDhVqg==
@@ -1293,7 +1293,7 @@
     history "^4.9.0"
     qs "^6.9.7"
 
-"@elastic/search-ui@1.24.2", "@elastic/search-ui@^1.24.1":
+"@elastic/search-ui@1.24.2", "@elastic/search-ui@^1.18.3":
   version "1.24.2"
   resolved "https://registry.yarnpkg.com/@elastic/search-ui/-/search-ui-1.24.2.tgz#a66c44d4c1a310226b8a3bef864b0050514dc8e9"
   integrity sha512-fQ/BGEbh4EvX+IWw89xiSUXD3p3iDvZPA46WCHwH+jfEtKiC9P+274UiR32POI3znaWfZElxm9kIyNioVGin0Q==

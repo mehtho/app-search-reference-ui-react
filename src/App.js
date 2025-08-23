@@ -36,11 +36,7 @@ const config = {
     track_total_hits: true,
 
     search_fields: {
-      generated_text: { weight: 3 },
-      duration: {},
-      age: {},
-      gender: {},
-      accent: {}
+      generated_text: { weight: 3 }
     },
     result_fields: {
       generated_text: { snippet: { size: 200, fallback: true } },
